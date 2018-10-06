@@ -1,9 +1,11 @@
 <% provide(:title, 'Sign Up') %>
+<% provide(:button_text, 'Create my account') %>
 
 <div class="container">
     <div class="row">
         <h1 style="text-align: center">Sign Up</h1>
         <div style="width: 30%; margin: 25px auto;">
+            <%= render 'form' %>
                 <%= form_for(@user) do |f| %>
                     <%= render 'shared/error_messages' %>
                     <div class="form-group">
