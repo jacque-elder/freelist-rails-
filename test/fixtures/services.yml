@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: MyString
+  image: MyString
+  description: MyString
+  email: MyString
+  website: MyString
+  phone: MyString
+  user: michael
+  created_at: <%= 10.minutes.ago %>
+
+two:
+  name: MyString
+  price: MyString
+  image: MyString
+  description: MyString
+  email: MyString
+  website: MyString
+  phone: MyString
+  user: michael
+  created_at: <%= 3.years.ago %>
+
+most_recent:
+  name: MyString
+  price: MyString
+  image: MyString
+  description: MyString
+  email: MyString
+  website: MyString
+  phone: MyString
+  user: michael
+  created_at: <%= Time.zone.now %>
+
+<% 30.times do |n| %>
+service_<%= n %>:
+  description: <%= Faker::Lorem.sentence(5) %>
+  email: Faker::Internet.email
+  phone: Faker::PhoneNumber.phone_number
+  price: Faker::Commerce.price
+  name: Faker::Company.profession
+  website: "#{Faker::Lorem.word}.com"
+  image: Faker::Placeholdit.image
+  created_at: <%= 42.days.ago %>
+  user: michael
+<% end %>

@@ -10,4 +10,12 @@
 			</section>
 		</aside>
 	</div>
+	<div class="col-md-8">
+		<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+		    <% if @user.services.any? %>
+		    	<%= render @services %>
+            	<%= will_paginate @services %>
+		    <% end %>
+	    </div>
+	</div>
 </div>

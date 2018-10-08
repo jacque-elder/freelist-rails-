@@ -1,0 +1,32 @@
+<% provide(:title, @service.name) %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Contact</p>
+            <div class="list-group">
+                <li class="list-group-item"><%= @service.website %></li>
+                <li class="list-group-item"><%= @service.email %></li>
+                <li class="list-group-item"><%= @service.phone %></li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= @service.image %>">
+                <div class="caption-full">
+                    <h4 class="pull-right">$<%= @service.price %> / hour</h4>
+                    <h4><a><%= @service.name %></a></h4>
+                    <p><%= @service.description %></p>
+                    <p>
+                        <em>Submitted by <%= @service.user.name %></em>
+                    </p>
+                    <% if current_user?(@service.user) %>
+      					<%= link_to "delete", @service, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-xs btn-danger" %>
+                        <%= link_to "edit", edit_service_path(@service), class: "btn btn-xs btn-warning" %>
+    				<% end %>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
