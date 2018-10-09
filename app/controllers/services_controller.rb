@@ -8,6 +8,7 @@ class ServicesController < ApplicationController
 
   def show
   	@service = Service.find(params[:id])
+    @reviews = @service.reviews.paginate(page: params[:page])
   end
 
   def new

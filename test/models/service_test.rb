@@ -23,4 +23,12 @@ class ServiceTest < ActiveSupport::TestCase
   test "order should be most recent first" do
     assert_equal services(:most_recent), Service.first
   end
+
+  test "associated reviews should be destroyed" do
+    @service.save
+    @service.reviews.create!(rating: "5", comment: "Lorem ipsum", user_id: @user.id)
+    assert_difference 'Review.count', -1 do
+      @service.destroy
+    end
+  end
 end

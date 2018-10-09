@@ -4,6 +4,8 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
+    @other_user = users(:archer)
+    @service = services(:one)
   end
 
   test "should be valid" do
@@ -81,6 +83,14 @@ class UserTest < ActiveSupport::TestCase
     @user.services.create!(description: "Lorem ipsum", image: "www.example.com/imageurl", name: "Example Service", price: "$10.00")
     assert_difference 'Service.count', -1 do
       @user.destroy
+    end
+  end
+
+  test "associated reviews should be destroyed" do
+    @other_user.save
+    @other_user.reviews.create!(comment: "Lorem ipsum", service_id: @service.id, rating: "5")
+    assert_difference 'Review.count', -1 do
+      @other_user.destroy
     end
   end
 end

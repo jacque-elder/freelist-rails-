@@ -35,3 +35,26 @@ users = User.order(:created_at).take(6)
                                             website: website, 
                                             image: image) }
 end
+
+services = Service.order(:created_at).take(6)
+10.times do
+  comment = Faker::Lorem.sentence(3)
+  rating = Faker::Number.between(1, 5)
+  users.each { |user| services.each { |service| service.reviews.create!(comment: comment, rating: rating, user_id: user.id) } }
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

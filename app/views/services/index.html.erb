@@ -4,7 +4,11 @@
             <h1>Welcome To Freelist</h1>
             <p>The easiest way to advertise your freelance services!</p>
             <p>
-                <%= link_to "Create an account", signup_path, class: "btn btn-primary btn-large" %>
+                <% unless logged_in? %>
+                    <%= link_to "Create an account", signup_path, class: "btn btn-primary btn-large" %>
+                <% else %>
+                    <%= link_to "Create a new service", new_service_path, class: "btn btn-primary btn-large" %>
+                <% end %>
             </p>
         </div>
     </header>
@@ -13,16 +17,16 @@
         <% @services.each do |service| %>
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail">
-                   <img src="<%= service.image %>">
-                   <div class="caption">
-                       <h4><%= service.name %></h4>
-                   </div>
-                   <p>
-                       <a href="/services/<%= service.id %>" class="btn btn-primary">More Info</a>
-                   </p>
+                    <img src="<%= service.image %>">
+                    <div class="caption">
+                        <h4><%= service.name %></h4>
+                    </div>
+                    <p>
+                        <%= link_to "More info", service, class: "btn btn-primary" %>
+                    </p>
                 </div>
             </div>
         <% end %>
-    <%= will_paginate %>
+        <%= will_paginate %>
     </div>
 </div>

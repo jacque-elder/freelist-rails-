@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-med-12">
+        <strong><%= review.user.name %></strong>
+        <span class="pull-right"><em>Rating: <%= review.rating %> / 5</em></span>
+        <p><%= review.comment %></p>
+        <% if current_user?(review.user) %>
+            <%= link_to "delete", service_review_path(@service, review), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-xs btn-danger" %>
+            <%= link_to "edit", edit_service_review_path(@service, review), class: "btn btn-xs btn-warning" %>
+        <% end %>
+    </div>
+</div>

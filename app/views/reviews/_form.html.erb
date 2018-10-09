@@ -1,0 +1,12 @@
+<%= form_for [@service, @review] do |f| %>
+    <div class="form-group">
+        <%= f.label :rating %>
+        <%= f.select :rating, ['1', '2', '3', '4', '5']%>
+    </div>
+    <div class="form-group">
+        <%= f.text_area :comment, class: 'form-control', placeholder: 'How was your experience?' %>
+    </div>
+    <div class="form-group">
+        <%= f.submit yield(:button_text), class: "btn btn-lg btn-primary btn-block" %>
+    </div>
+<% end %>
