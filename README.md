@@ -1,24 +1,31 @@
-# README
+# Freelist Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a personal project application written by Jacqueline Elder. It is a website where freelancers can create accounts and advertize their services as well as leave reviews for others' services.
 
-Things you may want to cover:
+You can view a sample of the running application here (https://immense-caverns-30689.herokuapp.com/)
 
-* Ruby version
+## Getting started
 
-* System dependencies
+To get started with the app, clone the repo and then install the needed gems:
 
-* Configuration
+```
+$ bundle install --without production
+```
 
-* Database creation
+Next, migrate the database:
 
-* Database initialization
+```
+$ rails db:migrate
+```
 
-* How to run the test suite
+Finally, run the test suite to verify that everything is working correctly:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ rails test
+```
 
-* Deployment instructions
+If the test suite passes, you'll be ready to run the app in a local server:
 
-* ...
+```
+$ rails server
+```
