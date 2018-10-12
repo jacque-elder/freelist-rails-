@@ -31,7 +31,9 @@
                     <h4>Reviews</h4>
                     <hr>
                     <%= render @reviews %>
-                    <%= will_paginate(@reviews) %>
+                    <div class="paginate">
+                        <%= will_paginate(@reviews) %>
+                    </div>
                 <% end %>
                 <div class="text-right">
                     <%= link_to "Add New Review", new_service_review_path(@service), class: "btn btn-success" %>
